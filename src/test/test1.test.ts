@@ -1,4 +1,4 @@
-import Mesh from '../tmv/mesh';
+import { Mesh } from '../tmv/mesh';
 
 describe('sum module', () => {
 	test('adds 1 + 2 to equal 3', () => {

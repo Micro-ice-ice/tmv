@@ -1,7 +1,7 @@
 import { Vector3, Matrix3 } from 'three';
-import Attribute from './attribute';
+import { Attribute } from './attribute';
 
-export default class Value {
+export class Value {
 
 	public Attributes: Attribute[] = [];
 

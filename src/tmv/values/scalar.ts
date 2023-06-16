@@ -1,6 +1,6 @@
-import Attribute  from './attribute';
+import { Attribute } from './attribute';
 
-export default class Scalar extends Attribute {
+export class Scalar extends Attribute {
 
 	public Value = 0;
 }

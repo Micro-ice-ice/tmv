@@ -1,6 +1,7 @@
-import Attribute from './attribute';
+import { Attribute } from './attribute';
+import { Vector3 } from 'three';
 
-export default class Vector extends Attribute {
+export class Vector extends Vector3 {
 
 	public Value : number[] = [0, 0, 0];
 }

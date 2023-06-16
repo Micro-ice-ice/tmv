@@ -1,15 +1,24 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./dist",
-    "module": "es6",
-    "target": "es6",
-    "sourceMap": true,
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ES2022",
     "noImplicitAny": true,
-
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "dom"]
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "test"
   ]
 }

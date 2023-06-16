@@ -1,10 +1,10 @@
-import Cell from './cell';
-import Line from './cell';
-import Pixel from './cell';
-import Points from './cell';
-import Quad from './cell';
-import Tetrader from './cell';
-import Triangle from './cell';
-import Voxel from './cell';
+import { Cell } from './cell';
+import { Line } from './line';
+import { Pixel } from './pixel';
+import { Points } from './point';
+import { Quad } from './quad';
+import { Tetrader } from './tetrader';
+import { Triangle } from './triangle';
+import { Voxel } from './voxel';
 
 export { Cell, Points, Line, Pixel, Quad, Triangle, Tetrader, Voxel };

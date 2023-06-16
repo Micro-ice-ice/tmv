@@ -1,7 +1,7 @@
 import { Vector3 } from 'three';
-import Value from './values/value';
+import { Value } from './values/value';
 
-export default class Node extends Vector3 {
+export class Node extends Vector3 {
 
 	public Value: Value;
 

@@ -1,26 +1,26 @@
-import Node from '../node';
-import Scalar from '../values/scalar';
-import Value from '../values/value';
+import { Node } from '../node';
+import { Value }  from '../values/value';
 import * as THREE from 'three';
 import {BufferGeometry} from 'three';
+import {Scalar} from '../values/scalar';
 
-export default class Cell {
+export class Cell {
 
 	protected static readonly Indices: number[] = [];
 
-	public static Material: THREE.Material;
+	public static Material: THREE.Material = new THREE.Material();
 
-	public static readonly Type: number;
+	public static readonly Type: number = 0;
 
 	public Value: Value;
 
 	public Nodes: Node[];
 
-	public ThreeObject: THREE.Object3D;
+	public ThreeObject: THREE.Object3D = new THREE.Object3D();
 
 	public Geometry: THREE.BufferGeometry = new BufferGeometry();
 
-	constructor(nodes: Node[], value?: Value) {
+	constructor(nodes: Node[], value: Value) {
 
 		this.Nodes = nodes;
 		this.Value = value;

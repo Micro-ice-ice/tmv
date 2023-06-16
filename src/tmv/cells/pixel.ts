@@ -1,18 +1,18 @@
-import Node from '../node';
-import Cell from './cell';
-import Value from '../values/value';
+import { Node } from '../node';
+import { Cell }  from './cell';
+import { Value}  from '../values/value';
 import * as THREE from 'three';
 
-export default class Pixel extends Cell {
+export class Pixel extends Cell {
 
-	public static Material = new THREE.MeshBasicMaterial({
+	public static override Material = new THREE.MeshBasicMaterial({
 		vertexColors: true,
 		side: THREE.DoubleSide
 	});
 
-	protected static readonly Indices = [0, 1, 2, 1, 2, 3];
+	protected static override  readonly Indices = [0, 1, 2, 1, 2, 3];
 
-	public static readonly Type: number = 8;
+	public static override  readonly Type: number = 8;
 
 	constructor(nodes: Node[], value: Value) {
 
@@ -21,12 +21,12 @@ export default class Pixel extends Cell {
 		this.ThreeObject = new THREE.Mesh(this.Geometry, Pixel.Material);
 	}
 
-	public get Type() {
+	public override  get  Type() {
 
 		return Pixel.Type;
 	}
 
-	protected get Indices() {
+	protected override get Indices() {
 
 		return Pixel.Indices;
 	}

@@ -1,31 +1,28 @@
 const path = require('path');
-const ESLintPlugin = require('eslint-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
-module.exports = ({ developments: development}) => ({
-    entry: './src/index.ts',
-    devtool: development ? 'inline-source-map' : false,
-    mode: development ? 'development' : 'production',
+module.exports = {
+    entry: './src/tmv.ts',
+    mode: 'production',
     output: {
         filename: 'tmv.js',
         path: path.resolve(__dirname, 'dist'),
         library: 'tmv',
-        libraryExport: 'default',
-        libraryTarget: 'umd',
+        libraryTarget: 'umd2',
         umdNamedDefine: true,
-        globalObject: 'typeof self === \'undefined\' ? this : self',
-        
+        globalObject: 'this'
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.ts'],
     },
     module: {
         rules: [
             {
-                test: /\.ts?$/,
-                use: 'ts-loader',
+                test: /\.ts$/,
                 exclude: /node_modules/,
-            }
+                use: ['babel-loader', 'ts-loader'],
+            },
         ],
     },
-    plugins: [new ESLintPlugin({ extensions: ['ts']})]
-});
+    plugins: [new ESLintPlugin({ extensions: ['ts'] })],
+};

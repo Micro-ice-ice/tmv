@@ -1,16 +1,16 @@
-import Node from '../node';
-import Cell  from './cell';
-import Value from '../values/value';
+import { Node } from '../node';
+import { Cell }  from './cell';
+import { Value}  from '../values/value';
 import * as THREE from 'three';
 
-export default class Voxel extends Cell {
+export class Voxel extends Cell {
 
-	public static Material: THREE.Material = new THREE.MeshBasicMaterial({
+	public static override Material: THREE.Material = new THREE.MeshBasicMaterial({
 		vertexColors: true,
 		side: THREE.DoubleSide
 	});
 
-	protected static readonly Indices = [
+	protected static override readonly Indices = [
 		0, 1, 2, 1, 2, 3, // face 1
 		4, 5, 6, 5, 6, 7, // face 2
 		0, 1, 4, 1, 4, 5, // face 1
@@ -19,7 +19,7 @@ export default class Voxel extends Cell {
 		0, 2, 4, 2, 4, 6  // face 6
 	];
 
-	public static readonly Type: number = 11;
+	public static override readonly Type: number = 11;
 
 	constructor(nodes: Node[], value: Value) {
 
@@ -28,12 +28,12 @@ export default class Voxel extends Cell {
 		this.ThreeObject = new THREE.Mesh(this.Geometry, Voxel.Material);
 	}
 
-	public get Type() {
+	public override get Type() {
 
 		return Voxel.Type;
 	}
 
-	protected get Indices() {
+	protected override get Indices() {
 
 		return Voxel.Indices;
 	}

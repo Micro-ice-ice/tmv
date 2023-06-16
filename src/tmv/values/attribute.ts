@@ -1,4 +1,4 @@
-export default class Attribute {
+export class Attribute {
 
 	public Name = '';
 }
