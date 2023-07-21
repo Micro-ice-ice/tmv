@@ -1,7 +1,6 @@
-import { Node } from '../node';
-import { Cell }  from './cell';
-import { Value}  from '../values/value';
+import {Node} from '../nodes/node';
 import * as THREE from 'three';
+import {Cell} from './cell';
 
 export class Points extends Cell {
 
@@ -13,9 +12,9 @@ export class Points extends Cell {
 
 	public override ThreeObject: THREE.Points;
 
-	public constructor(nodes: Node[], value: Value) {
+	public constructor(nodes: Node[]) {
 
-		super(nodes, value);
+		super(nodes);
 
 		this.ThreeObject = new THREE.Points(this.Geometry, Points.Material);
 	}

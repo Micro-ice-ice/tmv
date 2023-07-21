@@ -2,4 +2,4 @@
 
 <p> To install: </p>
 
-<p style="background: gainsboro">npm i three-model-visualization</p>
+<p>npm i three-model-visualization</p>

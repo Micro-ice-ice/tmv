@@ -14,7 +14,7 @@ describe('sum module', () => {
 				]
 			};
 
-			const mesh = new Mesh(input);
+			const mesh = Mesh.FromJson(input);
 			return mesh.Nodes[0].x;
 		})()).toBe(7.0);
 	});

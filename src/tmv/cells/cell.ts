@@ -1,8 +1,6 @@
-import { Node } from '../node';
-import { Value }  from '../values/value';
+import {Node} from '../nodes/node';
 import * as THREE from 'three';
 import {BufferGeometry} from 'three';
-import {Scalar} from '../values/scalar';
 
 export class Cell {
 
@@ -12,18 +10,15 @@ export class Cell {
 
 	public static readonly Type: number = 0;
 
-	public Value: Value;
-
 	public Nodes: Node[];
 
 	public ThreeObject: THREE.Object3D = new THREE.Object3D();
 
 	public Geometry: THREE.BufferGeometry = new BufferGeometry();
 
-	constructor(nodes: Node[], value: Value) {
+	constructor(nodes: Node[]) {
 
 		this.Nodes = nodes;
-		this.Value = value;
 
 		const vertices = ([] as number[]).concat(...this.Nodes.map((node: Node) => node.toArray()));
 
@@ -50,31 +45,22 @@ export class Cell {
 		return Cell.Indices;
 	}
 
-	public SetColorByValueInNodes(attribute_index: number) {
+	public SetColorByValueInNodes() {
 
-		const colors: number[] = [];
-
-		for (let i = 0; i < this.Nodes.length; ++i) {
-
-			const scalar: Scalar = <Scalar>this.Nodes[i].Value.Attributes[attribute_index];
-			colors.push((1 - scalar.Value), (0.5 - Math.abs(0.5 - scalar.Value) * 2), scalar.Value);
-		}
-
-		this.Geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+		// const colors: number[] = [];
+		//
+		// for (let i = 0; i < this.Nodes.length; ++i) {
+		//
+		// 	const scalar: Scalar = <Scalar>this.Nodes[i].Data.Attributes[attribute_index];
+		// 	colors.push((1 - scalar.Data), (0.5 - Math.abs(0.5 - scalar.Data) * 2), scalar.Data);
+		// }
+		//
+		// this.Geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 	}
 
-	public SetColorByValueInCell(attribute_index: number) {
+	public SetColorByValueInCell() {
 
-		const colors: number[] = [];
-
-		const scalar: Scalar = <Scalar>this.Value.Attributes[attribute_index];
-
-		for (let i = 0; i < this.Nodes.length; ++i) {
-
-			colors.push((1 - scalar.Value), (0.5 - Math.abs(0.5 - scalar.Value) * 2), scalar.Value);
-		}
-
-		this.Geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+		//
 	}
 
 

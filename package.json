@@ -1,6 +1,6 @@
 {
-  "name": "three-model-visualization2",
-  "version": "1.1.11",
+  "name": "three-model-visualization",
+  "version": "1.1.1",
   "description": "Three Model Visualization - lib based on THREE.js for visualization mesh",
   "main": "dist/tmv.js",
   "types": "dist/tmv.d.ts",

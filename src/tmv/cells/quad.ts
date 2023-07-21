@@ -1,20 +1,10 @@
-import { Node } from '../node';
-import { Cell }  from './cell';
-import { Value}  from '../values/value';
-import * as THREE from 'three';
+import {VCell} from './vcell';
 
-export class Quad extends Cell {
+export class Quad extends VCell {
 
 	protected static override readonly Indices = [0, 1, 2, 0, 3, 2];
 
 	public static override readonly Type: number = 9;
-
-	constructor(nodes: Node[], value: Value) {
-
-		super(nodes, value);
-
-		this.ThreeObject = new THREE.Mesh(this.Geometry, Quad.Material);
-	}
 
 	public override get Type() {
 
