@@ -2,10 +2,15 @@ import { Node } from './nodes/node';
 import { Data } from './data/data';
 import * as CellType from './cells/cellTypes';
 
+type scalar = number;
+type vector = [number, number, number]
+type tensor = [number, number, number, number, number, number, number, number, number]
+type value = scalar | vector | tensor;
+
 interface attribute {
 
 	name: string,
-	values: number[] | {x: number, y: number, z: number} []
+	values: value[]
 }
 
 interface meshJson {
